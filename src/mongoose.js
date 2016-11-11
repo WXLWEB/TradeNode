@@ -2,14 +2,20 @@
 var mongoose = require('mongoose');
 
 //Lets connect to our database using the DB server URL.
-mongoose.connect('mongodb://localhost/TradeData');
+mongoose.connect('mongodb://localhost/Test');
 
 
 /**
  * Lets define our Model for User entity. This model represents a collection in the database.
  * We define the possible schema of User document and data types of each field.
  * */
-var User = mongoose.model('User', {name: String, roles: Array, age: Number});
+   // Create a schema
+  var UserSchema = new mongoose.Schema({
+    name: String,
+    roles: Array,
+    age: Number
+  });
+  var User = mongoose.model('User', UserSchema);
 
 /**
  * Lets Use our Models
